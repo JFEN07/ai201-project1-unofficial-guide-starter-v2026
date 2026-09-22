@@ -23,6 +23,11 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
+
+At least two documents mention the city or general subject involved in each
+question, although the exact answer may appear in only one document and a
+different chunk about the question's topic could be retrieved instead.
+
 <!-- e.g. "One of my questions is about a topic only two documents mention, so
      I expect that one to be hard." -->
 
@@ -33,6 +38,11 @@ contains the answer.
 Every answer the system produces names at least one source document.
 
 **Why this target:**
+
+All five answers should have a supporting source document to verify their
+credibility. The answer should be able to identify the document it came from
+as there are multiple documents with overlapping topics.
+
 <!-- Why all five and not four? What about your setup makes that achievable —
      or what would have to go wrong for it not to be? -->
 
@@ -50,12 +60,21 @@ in at least 4 of 5 tries.
      just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
 
 **Why this target:**
+
+Refusals occur if the questions do not pertain to the content of the 
+city_guides corpus. 4 of 5 refusals being necessary allows for a single 
+response, whether relevant or not to occur, but prevents further unsupported 
+answers from being generated.
+
 <!-- What did your distances look like when you set the cutoff in Milestone 4?
      Was there a clean gap, or did the two groups overlap? -->
 
 ---
 
 ## 4. Something about your chunks
+
+At least 4 of 5 sampled chunks will begin and end with complete sentences and 
+contain facts that can be understood without another chunk.
 
 <!-- YOU WRITE THIS ONE.
 
@@ -72,12 +91,18 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
-
+city_guides corpus consists of large, high character documents that are 
+larger than the chunk sizes and bound to be split mid sentence or paragraphs. 
+Requiring 4 of 5 sampled chunks allows a complete and meaningful piece of 
+the documents to be conveyed while allowing for a single unusual chunk.
 
 
 ---
 
-## 5. Your choice
+## 5. Answers attribute the correct source
+
+For 5 of 5 of the test questions, at least one source document named in the 
+answer will contain that question’s expects phrase.
 
 <!-- YOU WRITE THIS ONE TOO.
 
@@ -91,8 +116,12 @@ in at least 4 of 5 tries.
 
 **Why this target:**
 
-
-
+I chose this criterion because many of the documents within city_guides contain 
+overlapping topics like town names, places to eat, seasons to visit, 
+transportation and accessibility. At least one of the sources named should be 
+the one most closely related to the answer containing the expects phrase. I 
+selected 5 of 5 because I want every correct answer to identify the exact 
+source its answer is attributed to.
 ---
 
 <!-- ─────────────────────────────────────────────────────────────────────────
