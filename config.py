@@ -27,8 +27,12 @@ CORPUS = os.getenv("AI201_CORPUS", "city_guides")
 # These are deliberately plain, generic numbers. Milestone 3 is where you
 # replace them with numbers that fit the documents you actually read.
 
-CHUNK_SIZE = 800        # characters per chunk
-CHUNK_OVERLAP = 120     # characters shared between neighbouring chunks
+# Increased to 1400 for the chunk size as city_guides consists of large documents that average 
+# 2,068 characters a piece
+CHUNK_SIZE = 1400        # characters per chunk
+# Slightly lowered overlap to 125 to avoid large paragraphs from seeping across chunks, but 
+# allow paragraph headings and endings to transfer through
+CHUNK_OVERLAP = 100     # characters shared between neighbouring chunks
 
 
 # ─── Retrieval (Milestone 4) ─────────────────────────────────────────────────
