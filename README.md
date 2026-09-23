@@ -37,8 +37,8 @@ comes to traveling by bus.
 
 ## Chunking Strategy
 
-**Chunk size:**
-**Overlap:**
+**Chunk size: 1400 **
+**Overlap: 100 **
 
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
@@ -229,14 +229,15 @@ and is slow rather than difficult.
 <!-- One complete question and answer, pasted as text, with the source line
      visible. Milestone 4. -->
 
-**Question:**
+**Question: "How do the city guides describe Thornby Wells to people getting around the region with limited mobility?" **
 
-**Answer:**
+**Answer: According to `guide_accessibility.md`, Thornby Wells is described as the easiest town in the region, being flat, compact, and having everything within three minutes of everything else. It notes that the pump room and gardens are level throughout, parking is free for two hours anywhere in town, and the station is central. **
 
 ```
+Sources retrieved: guide_accessibility.md, guide_thornby_wells.md, guide_walking.md
 ```
 
-**My relevance cutoff:**
+**My relevance cutoff: 0.75 **
 
 <!-- The number you set in config.py, and how you got there.
 
@@ -249,7 +250,16 @@ and is slow rather than difficult.
 
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
+| 1. Which towns in the city guides are considered good or reliable options for tourists to go during the winter season? | Yes | 0.4749 |
+| 2. What market in what town is considered the best in the region? | Yes | 0.5237 |
+| 3. What week do the city guides argue as the best to visit Brightwater? | Yes | 0.3947 |
+| 4. How do the city guides describe Thornby Wells to people getting around the region with limited mobility? | Yes | 0.4348 |
+| 5. What do the city guides say the most common source of confusion from the three bus operators is? | Yes | 0.7043 |
+| 6. What is the capital of Mongolia? | No | 0.8886 |
+| 7. How do I change the oil in a diesel engine? | No | 0.9075 |
+| 8. Who won the 1994 World Cup? | No | 1.0349 |
+| 9. What is the recommended dosage of ibuprofen for a headache? | No | 0.8335 |
+| 10. How do I write a for loop in Rust? | No | 0.8746 |
 
 ## How I Used AI
 
@@ -262,9 +272,11 @@ and is slow rather than difficult.
 
      Milestone 5. -->
 
-**1.**
+**1. When I asked Claude to build the chunking function from my corpus details and preferences, it allowed paragraphs without headers to appear in two chunks. I edited the body function and lowered the overlap size.**
 
-**2.**
+**2. When I asked ChatGPT for additional examples for generating questions and expectations, it suggested referencing 
+the exact document source in the question. Instead, I had my questions either include from the corpora ("city guides") 
+or be a general question covering the entire corpora with no mention of it.**
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
