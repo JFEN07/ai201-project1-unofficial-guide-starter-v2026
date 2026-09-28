@@ -425,13 +425,15 @@ According to **guide_accessibility.md** and **guide_walking.md**, Thornby Wells 
      low, and which one you'd tighten and to what.
 
      Milestone 3. -->
+As **criterion 5** is an extension of **criterion 2**, I believe their missing is a result of the same stage and failing/faulty mechanism. These criterion both require a source to be named within the answer, and after reading through the stages of the  Production RAG Pipeline and their mechanisms within this project, I came to the conclusion that the grounding instruction within the Generation stage isn't strict enough and is allowing answer that don't contain sources to pass through.
 
 ## The Improvement
 
 **What I changed:**
+ I tightened the grounding instruction by specifying that a separate line containing the relevant sources to the answer must be generated, and I gave it a specific structure to follow when referencing the file(s) on that line.
 
 **Why I picked it:**
-
+I picked making the grounding instruction stricter as it directly influences whether the question is close enough to the documents to generate and answer and how the answer is structured when generated.
 <!-- Connect it to a specific diagnosis above in one sentence. If you can't,
      you picked a fix because it sounded impressive. -->
 
@@ -442,13 +444,14 @@ According to **guide_accessibility.md** and **guide_walking.md**, Thornby Wells 
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 4 of 5 | 4 of 5 | 4 of 5 | MET |
+| 2. Every answer names a source | 5 of 5 | 5 of 5 | 5 of 5 | 5 of 5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5 of 5 | 5 of 5 | 5 of 5 | MET |
+| 4. Sampled chunks begin and end with complete sentences | 4 of 5 | 5 of 5 | 5 of 5 | 5 of 5 | MET |
+| 5. One source document named contains 'expects' phrase | 5 of 5 | 4 of 5 | 4 of 5 | 4 of 5 | MISSED |
 
 **Did it help?**
+The changes made to the grounding instruction improved the consistency and structure of the answers so that they all produced the sources they came from within them in the same format each time, while also slightly differing when producing the right answer.
 
 <!-- Say plainly whether it did, and how you know. If it made things worse,
      say that — a change that backfired, honestly reported, earns full credit
@@ -458,6 +461,7 @@ According to **guide_accessibility.md** and **guide_walking.md**, Thornby Wells 
      Milestone 4. -->
 
 ## What's Still Broken
+Following the grounding instruction fix that allowed criterion 2 to be met, criterion 5 was still missed as the expects phrase was not found within the sources. This a fundamental error within the questions.py file as the expects phrase for question 4 is not explicitly stated within the source, but its parts are stated across it. 
 
 <!-- For each criterion still missed after your fix: what you'd do about it,
      and why you stopped where you did.
@@ -468,6 +472,7 @@ According to **guide_accessibility.md** and **guide_walking.md**, Thornby Wells 
      Milestone 5. -->
 
 ## What I'd Do Differently
+If I were to change a criterion, it would be criterion 5 as it has a strong overlap with criterion 2. I don't think it is obsolete because of this, but a more independent criterion would allow more bases to be covered across the project and its parameters.
 
 <!-- Knowing what you know now — which of your five criteria would you write
      differently, and why?
