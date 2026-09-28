@@ -400,11 +400,11 @@ According to **guide_accessibility.md** and **guide_walking.md**, Thornby Wells 
 
 | # | Criterion | Verdict | How I decided |
 |---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-| 4 |  |  |  |
-| 5 |  |  |  |
+| 1 | 4 of 5 Retrieved chunks contain the answer | MET | For all three runs, the respective chunks contained the answers for questions 1, 2, 3, and 5, only failing to correctly answer question 4 on all three runs, arguably because of the expects phrase I chose. |
+| 2 | (5 of 5) Every answer names a source | MISSED | This was a fail because in the first run, the answer to question 1 failed to name the source in the answer, resulting in 4 of 5 answers fulfilling the criterion, and in the second and third runs the source wasn't included in the answers for question 5, also resulting in 4 of 5 answers fulfilling the criterion, but failing to reach the 5 of 5 threshold across runs. |
+| 3 | Gate stops 4 of 5 out-of-corpus questions | MET | The results showed that all 5 out-of-corpus questions were refused as they exceeded the 0.75 threshold cutoff, successfully fulfilling the criterion of the gate stopping at least 4 of 5 out-of-corpus questions from being answered. |
+| 4 | 4 of 5 Sampled chunks begin and end with complete sentences | MET | All 5 sampled chunks used to answer the questions across all three runs were either headed by a header or properly began at the beginning of a sentence and ended at the end of a sentence. This also shows my chunker.py function is working successfully. |
+| 5 | (5 of 5) One source document named by answer contains 'expects' phrase | MISSED | This criterion failed as it is an extension of the second criterion and somewhat of the first criterion where it was already determined that only 4 of 5 answers contained a source for all three runs and 4 of 5 retrieved chunks contained the answer, although the source could differ from the chunk. |
 
 ## Diagnoses
 
